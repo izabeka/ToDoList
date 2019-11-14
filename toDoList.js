@@ -1,25 +1,60 @@
-//Methods and classes
+//Tasks list
+let listOfTasks = [];
 
-class Task {
-    constructor(toDo, deadline, importance=normal) {
-        this.toDo;
-        this.deadline;
-        this.importance;
-    }
+//Submit task
+let btn = document.getElementById('button');
+btn.addEventListener("click", addTask);
 
-    done() {
-        return task.style.strike();
-    }
+//Stops page reload & adds task to list
+function addTask(event) {
+    event.preventDefault();
 
-    undone() {
-        return task.style.normal();
+    let text = document.getElementById('to-do').value; 
+    
+    //Checking if sth was written
+    if (text === '' || text.trim() === '') {
+        alert('You need to write Your task');
+    } else {
+        
+        //Create a task
+        const task = {
+            text,
+            id: listOfTasks.length,
+            checked: false
+        }
+
+        //Adds task to the list
+        listOfTasks.push(task);
+
+        //Prints the list
+        console.log(listOfTasks); 
+
+        //Makes input blank again
+        document.getElementById('to-do').value = '';
     }
 }
 
+//Mark task as done/undone
+function done(task) {
+    if (task.checked === false) {
+        task.checked = true;
+        console.log(`%c${task.text}`, 'text-decoration: line-through');
+    }
 
-//Working to-do list
+    listOfTasks.sort((a, b) => {return a.checked - b.checked});
+}
 
-let list = []
+function undone(task) {
+    if (task.checked === true) {
+        task.checked = false;
+        console.log(`${task.text}`);
+    }
 
-list.append(new Task('cleaning', '20/12/2019', 'high'));
+    listOfTasks.sort((a, b) => {
+        if (a.checked === false && b.checked === false) {
+            return a.id - b.id;
+        }
+    });
+}
+
 

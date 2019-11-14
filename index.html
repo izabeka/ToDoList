@@ -2,17 +2,21 @@
     <head>
         <meta charset='utf-8'/>
         <title>List of Your tasks</title>
+        <link href="https://fonts.googleapis.com/css?family=News+Cycle|Permanent+Marker" rel="stylesheet">
         <meta name='description' content='This is the page where you can store your tasks.'/>
         <meta name='keywords' content='ToDo List'/>
         <meta http-equiv='X-UA-Compatible' content='IE-edge, chrome=1'/>
-        <!--
-        <link rel='stylesheet' href='css/style.css' type='text/css' />
-        -->
-        <script src='./toDoList.js'></script>
     </head>
     <body>
-        <form> 
-            <input type='text'>
-            <input type='submit'>
+        <header>
+            <h1>List of Your tasks</h1>
+        </header>
+        <form class='add-task'>
+            <input id='to-do' type='text' placeholder='What do You need to do?'/>
+            <input id='button' type='button' value='Add task'/>
+        </form>
+        <ol class='taksk-list'>
+        </ol>
+        <script src='./toDoList.js'></script>
     </body>
 </html>
