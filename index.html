@@ -11,11 +11,28 @@
         <header>
             <h1>List of Your tasks</h1>
         </header>
+        <div id='current-date'>
+        </div>
         <form class='add-task'>
-            <input id='to-do' type='text' placeholder='What do You need to do?'/>
-            <input id='button' type='button' value='Add task'/>
+            <div>
+                <label>What do You need to do?</label> 
+                <input id='to-do' type='text' placeholder='Task' required/>
+            </div>
+            <div>
+                <label>Deadline</label>
+                <input id='deadline' type='date'/>
+            </div>
+            <div>
+                <label>Importance</label>
+                <select id='importance'>
+                    <option>Low</option>
+                    <option selected>Normal</option>
+                    <option>High</option>
+                </select>
+            </div>
+            <input id='button' type='submit' value='Add task'/>
         </form>
-        <ol class='taksk-list'>
+        <ol class='task-list'>
         </ol>
         <script src='./toDoList.js'></script>
     </body>
