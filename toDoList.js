@@ -26,7 +26,8 @@ function addTask(event) {
     let text = document.getElementById('to-do').value; 
     let date = document.getElementById('deadline').value;
     let imp = document.getElementById('importance').value;
-    
+    var tasksList = document.getElementById('task-list');
+  
     //Checking if sth was written
     if (text === '' || text.trim() === '') {
         alert('You need to write down Your task');
@@ -118,18 +119,15 @@ function checkDeadline() {
 //Sort by importance
 let sortImportance = document.getElementById('imp-sort');
 sortImportance.onclick = function() {
-    let start = {imp: 'Normal', checked: false};
-    listOfTasks.unshift(start);
     listOfTasks.sort(sortImp);
-    listOfTasks.splice(listOfTasks.indexOf(start), 1);
     console.log(listOfTasks);
 }
 
-function sortImp(a) {
-    if (a.checked === false) {
-        if (a.imp == 'Low') {
+function sortImp(a, b) {
+    if (a.checked === false && b.checked === false) {
+        if (a.imp > b.imp) {
             return 1;
-        } else if (a.imp == 'High') {
+        } else if (a.imp < b.imp) {
             return -1;
         }else {
             return 0;

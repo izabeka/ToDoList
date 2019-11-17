@@ -110,11 +110,11 @@ h2 {
 }
 
 .selectors p {
-    background-color: var(--orange-color);
-    color: var(--darkblue-color);
+    background-color: var(--blue-color);
+    color: var(--orange-color);
     margin: 0.5rem;
     font-weight: bold;
-    border: 3px solid var(--blue-color);
+    border: 3px solid var(--orange-color);
     border-radius: 0.9rem;
     padding: 0.5rem;
     line-height: 1.5rem;
