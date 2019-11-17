@@ -140,4 +140,14 @@ function checkDeadline(listOfTasks) {
 } 
 
 //Search 
+let find = document.getElementById('find');
+find.addEventListener('keyup', findTask);
 
+function findTask(e) {
+    let findText = e.target.value.toLowerCase();
+    listOfTasks.forEach(function(n) {
+        if (n.text.toLowerCase().indexOf(findText) != -1) {
+            console.log(n);
+        }
+    })
+}
