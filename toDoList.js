@@ -125,11 +125,19 @@ sortImportance.onclick = function() {
 
 function sortImp(a, b) {
     if (a.checked === false && b.checked === false) {
-        if (a.imp > b.imp) {
+        if (a.imp === 'Low' && b.imp === 'Normal') {
             return 1;
-        } else if (a.imp < b.imp) {
+        } else if (a.imp === 'Low' && b.imp === 'High') {
+            return 1;
+        } else if (a.imp === 'Normal' && b.imp === 'Low') {
             return -1;
-        }else {
+        } else if (a.imp === 'Normal' && b.imp === 'High') {
+            return 1;
+        } else if (a.imp === 'High' && b.imp === 'Low') {
+            return -1;
+        } else if (a.imp === 'High' && b.imp === 'Normal') {
+            return -1;
+        } else {
             return 0;
         }
     }
