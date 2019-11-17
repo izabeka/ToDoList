@@ -93,7 +93,11 @@ function undone(task) {
 }
 
 //Deadline date control
-function checkDeadline(listOfTasks) {
+let checkButton = document.getElementById('check-deadlines');
+checkButton.addEventListener('click', checkDeadline);
+
+function checkDeadline() {
+    listOfTasks = JSON.parse(localStorage.getItem('tasks'));
     let past = 0;
     let today = 0;
     listOfTasks.forEach(function(n) {
@@ -106,34 +110,89 @@ function checkDeadline(listOfTasks) {
             today++;
         }
     });
-    return `You missed deadline of ${past} task(s) and should finish ${today} task(s) today.`;
+    alert(`You missed deadline of ${past} task(s) and should finish ${today} task(s) today.`);
+    console.log(`You missed deadline of ${past} task(s) and should finish ${today} task(s) today.`);
 } 
 
 //==========SORT OPTIONS==========//
 //Sort by importance
+let sortImportance = document.getElementById('imp-sort');
+sortImportance.onclick = function() {
+    let start = {imp: 'Normal', checked: false};
+    listOfTasks.unshift(start);
+    listOfTasks.sort(sortImp);
+    listOfTasks.splice(listOfTasks.indexOf(start), 1);
+    console.log(listOfTasks);
+}
+
 function sortImp(a) {
     if (a.checked === false) {
         if (a.imp == 'Low') {
             return 1;
         } else if (a.imp == 'High') {
             return -1;
-        } else {
+        }else {
             return 0;
         }
     }
 }
 
 //Sort by deadline
+let sortDate = document.getElementById('date-sort');
+sortDate.onclick = function() {
+    listOfTasks.sort(sortDeadline);
+    console.log(listOfTasks);
+};
+
 function sortDeadline(a, b) {
     if (a.checked === false && b.checked === false) { 
-        if (a.date === '' || b.date === '') {
-            return -1;
-        } else
         if (a.date > b.date) {
             return 1;
         } else if (a.date < b.date) {
-            return -1;
-        } else {
+            return -1;}
+        else {
+            return 0;
+        }
+    } else {
+        return 0;
+    }
+}
+
+//Sort by id (adding time)
+let sortById = document.getElementById('id-sort');
+sortById.onclick = function() {
+    listOfTasks.sort(sortId);
+    console.log(listOfTasks);
+};
+
+function sortId(a, b) {
+    if (a.checked === false && b.checked === false) { 
+        if (a.id > b.id) {
+            return 1;
+        } else if (a.id < b.id) {
+            return -1;}
+        else {
+            return 0;
+        }
+    } else {
+        return 0;
+    }
+}
+
+//Sort by task
+let sortTask = document.getElementById('text-sort');
+sortTask.onclick = function() {
+    listOfTasks.sort(sortText);
+    console.log(listOfTasks);
+};
+
+function sortText(a, b) {
+    if (a.checked === false && b.checked === false) { 
+        if (a.text > b.text) {
+            return 1;
+        } else if (a.text < b.text) {
+            return -1;}
+        else {
             return 0;
         }
     } else {

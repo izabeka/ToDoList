@@ -28,6 +28,7 @@ h1 {
     margin: 1rem;
 }
 
+/*-----Adding tasks-----*/
 input, select {
     background-color: var(--bright-color);
     border-radius: 0.9rem;
@@ -42,9 +43,9 @@ input, select {
     padding: 1rem;
     font-size: 1rem;
     margin: auto;
-    display: inline-flex;
+    display: flex;
     justify-content: space-between;
-    width: 90%;
+    width: 95%;
     border-radius: 1.8rem;
     flex-wrap: wrap;
 }
@@ -68,25 +69,69 @@ input, select {
     margin: 0.5rem;
 }
 
+#importance{
+    height:2.8rem;
+}
+
 #button {
     flex: 0.5;
     background-color: var(--darkblue-color);
     color: var(--bright-color);
     margin: 0.5rem;
     font-weight: bold;
-    border: 1px solid var(--bright-color);
+    border: 3px solid var(--bright-color);
     align-self: flex-end;
 }
 
-
-#find {
-    border: 3px solid var(--blue-color);
-    margin: 3% auto;
-    position: absolute;
-    right: 10%;
-    align-self:center;
+/*-----Options-----*/
+h2 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--orange-color);
 }
 
+.options {
+    color: var(--orange-color);
+    background-color: var(--darkblue-color);
+    border: 3px solid var(--blue-color);
+    padding: 1rem;
+    font-size: 1rem;
+    margin: 3% auto;
+    width: 95%;
+    border-radius: 1.8rem;
+}
+
+.selectors {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.selectors p {
+    background-color: var(--orange-color);
+    color: var(--darkblue-color);
+    margin: 0.5rem;
+    font-weight: bold;
+    border: 3px solid var(--blue-color);
+    border-radius: 0.9rem;
+    padding: 0.5rem;
+    line-height: 1.5rem;
+    flex: 1;
+    width:100%;
+    text-align: center;
+}
+
+#find {
+    border: 3px solid var(--orange-color);
+    margin: 3% auto auto auto;
+    display: block;
+    align-items: center;
+    color: var(--darkblue-color);
+}
+
+/*-----Responsive Web-----*/
 @media all and (max-width: 767px) and (min-width: 576px) {
     .task-text {
         flex: 66.7%;
@@ -118,5 +163,9 @@ input, select {
     .task-imp {
         flex: 100%;
         margin: 0.5rem;
+    }
+
+    #check-deadlines, #imp-sort, #date-sort, #id-sort, #text-sort {
+        flex: 30%;
     }
 }

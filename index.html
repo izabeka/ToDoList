@@ -33,9 +33,19 @@
             </div>
             <input id='button' type='submit' value='Add task'/>
         </form>
-        <form class='search'>
-            <input id='find' type='text' placeholder='Search tasks'/>
-        </form>
+        <h2>Options</h2>
+        <div class='options'>
+            <div class='selectors'>
+                <p id='check-deadlines'>Check deadlines</p>
+                <p id='imp-sort'>Sort by importance</p>
+                <p id='date-sort'>Sort by deadline</p>
+                <p id='id-sort'>Sort by adding order</p>
+                <p id='text-sort'>Sort by tasks</p>
+            </div>
+            <form class='search'>
+                <input id='find' type='text' placeholder='Search tasks'/>
+            </form>
+        </div>    
         <ol class='task-list'>
         </ol>
         <script src='./toDoList.js'></script>
