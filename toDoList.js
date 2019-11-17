@@ -58,14 +58,19 @@ function addTask(event) {
     }
 }
 
-//Mark task as done/undone  ---After refresh desapires!!!!!!
+//Mark task as done/undone
 function done(task) {
     if (task.checked === false) {
         task.checked = true;
         console.log(`%c${task.text}`, 'text-decoration: line-through');
     }
 
-    return listOfTasks.sort((a, b) => {return a.checked - b.checked});
+    //Changes order - done at the end
+    listOfTasks =  listOfTasks.sort((a, b) => {return a.checked - b.checked});
+    
+    //Saves changes in localStorage
+    localStorage.setItem('tasks', JSON.stringify(listOfTasks));
+    return listOfTasks;
 }
 
 function undone(task) {
@@ -74,11 +79,16 @@ function undone(task) {
         console.log(`${task.text}`);
     }
 
-    return listOfTasks.sort((a, b) => {
+    //Changes order - brings back task to its previous place
+    listOfTasks = listOfTasks.sort((a, b) => {
         if (a.checked === false && b.checked === false) {
             return a.id - b.id;
         }
     });
+
+    //Saves changes in localStorage
+    localStorage.setItem('tasks', JSON.stringify(listOfTasks));
+    return listOfTasks;
 }
 
 //Sort by importance
@@ -126,11 +136,8 @@ function checkDeadline(listOfTasks) {
             today++;
         }
     });
-    return `You missed deadline of ${past} task(s) and should finish ${today} task(s) today.`
+    return `You missed deadline of ${past} task(s) and should finish ${today} task(s) today.`;
 } 
 
-
-//Search
-
-//Deleting task
+//Search 
 
