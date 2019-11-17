@@ -6,6 +6,7 @@
         <meta name='description' content='This is the page where you can store your tasks.'/>
         <meta name='keywords' content='ToDo List'/>
         <meta http-equiv='X-UA-Compatible' content='IE-edge, chrome=1'/>
+        <link rel='stylesheet' href='./style.css' type='text/css' />
     </head>
     <body>
         <header>
@@ -14,16 +15,16 @@
         <div id='current-date'>
         </div>
         <form class='add-task'>
-            <div>
-                <label>What do You need to do?</label> 
+            <div class='task-text'>
+                <label>What do You need to do?</label></br>
                 <input id='to-do' type='text' placeholder='Task' required/>
             </div>
-            <div>
-                <label>Deadline</label>
+            <div class='task-date'>
+                <label>Deadline</label></br>
                 <input id='deadline' type='date'/>
             </div>
-            <div>
-                <label>Importance</label>
+            <div class='task-imp'>
+                <label>Importance</label></br>
                 <select id='importance'>
                     <option>Low</option>
                     <option selected>Normal</option>
@@ -34,7 +35,7 @@
         </form>
         <form class='search'>
             <input id='find' type='text' placeholder='Search tasks'/>
-        </form>        
+        </form>
         <ol class='task-list'>
         </ol>
         <script src='./toDoList.js'></script>

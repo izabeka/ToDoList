@@ -14,6 +14,7 @@ document.querySelector('#current-date').innerHTML = `${dd}.${mm}.${yyyy}`;
 //Tasks list
 let listOfTasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
+//============TASKS METHODS===========//
 //Submit task
 let form = document.querySelector('.add-task');  
 form.addEventListener('submit', addTask);
@@ -91,6 +92,24 @@ function undone(task) {
     return listOfTasks;
 }
 
+//Deadline date control
+function checkDeadline(listOfTasks) {
+    let past = 0;
+    let today = 0;
+    listOfTasks.forEach(function(n) {
+        if (n.date === '') {
+        } else if (n.date < `${yyyy}-${mm}-${dd}`) {
+            alert(`You should have finished ${n.text} by now!`);
+            past++;
+        } else if (n.date === `${yyyy}-${mm}-${dd}`) {
+            alert(`You should finish ${n.text} today!`);
+            today++;
+        }
+    });
+    return `You missed deadline of ${past} task(s) and should finish ${today} task(s) today.`;
+} 
+
+//==========SORT OPTIONS==========//
 //Sort by importance
 function sortImp(a) {
     if (a.checked === false) {
@@ -122,24 +141,7 @@ function sortDeadline(a, b) {
     }
 }
 
-//Deadline date control
-function checkDeadline(listOfTasks) {
-    let past = 0;
-    let today = 0;
-    listOfTasks.forEach(function(n) {
-        if (n.date === '') {
-        } else if (n.date < `${yyyy}-${mm}-${dd}`) {
-            alert(`You should have finished ${n.text} by now!`);
-            past++;
-        } else if (n.date === `${yyyy}-${mm}-${dd}`) {
-            alert(`You should finish ${n.text} today!`);
-            today++;
-        }
-    });
-    return `You missed deadline of ${past} task(s) and should finish ${today} task(s) today.`;
-} 
-
-//Search 
+//===========SEARCH FIELD==========//
 let find = document.getElementById('find');
 find.addEventListener('keyup', findTask);
 

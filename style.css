@@ -1,0 +1,122 @@
+:root {
+    --darkblue-color: #396362;
+    --blue-color: #4b8e8d;
+    --orange-color: #f6c89f;
+    --bright-color: #ffe7d1;
+}
+
+html {
+    background-color: var(--darkblue-color);
+    font-family: 'News Cycle', sans-serif;
+    padding: 0;
+    margin:0;
+    max-width: 2000px;
+    min-width: 280px;
+}
+
+h1 {
+    color: var(--orange-color);
+    font-family: 'Permanent Marker', cursive;
+    font-size: 3rem;
+    text-align: center;
+}
+
+#current-date {
+    font-size: 1.5rem;
+    color: var(--blue-color);
+    text-align: center;
+    margin: 1rem;
+}
+
+input, select {
+    background-color: var(--bright-color);
+    border-radius: 0.9rem;
+    line-height: 1.5rem;
+    border: 1px solid var(--darkblue-color);
+    padding: 0.5rem;
+}
+
+.add-task {
+    color: var(--orange-color);
+    background-color: var(--blue-color);
+    padding: 1rem;
+    font-size: 1rem;
+    margin: auto;
+    display: inline-flex;
+    justify-content: space-between;
+    width: 90%;
+    border-radius: 1.8rem;
+    flex-wrap: wrap;
+}
+
+.task-text {
+    flex: 3;
+    margin: 0.5rem;
+}
+
+#to-do, #deadline, #importance {
+    width: 100%;
+}
+
+.task-date {
+    flex: 1;
+    margin: 0.5rem;
+}
+
+.task-imp {
+    flex: 1;
+    margin: 0.5rem;
+}
+
+#button {
+    flex: 0.5;
+    background-color: var(--darkblue-color);
+    color: var(--bright-color);
+    margin: 0.5rem;
+    font-weight: bold;
+    border: 1px solid var(--bright-color);
+    align-self: flex-end;
+}
+
+
+#find {
+    border: 3px solid var(--blue-color);
+    margin: 3% auto;
+    position: absolute;
+    right: 10%;
+    align-self:center;
+}
+
+@media all and (max-width: 767px) and (min-width: 576px) {
+    .task-text {
+        flex: 66.7%;
+        margin: 0.5rem;
+    }
+    
+    .task-date {
+        flex: 33.3%;
+        margin: 0.5rem;
+    }
+    
+    .task-imp {
+        flex: 1;
+        margin: 0.5rem;
+    }
+}
+
+@media all and (max-width: 575px) {
+    .task-text {
+        flex: 100%;
+        margin: 0.5rem;
+    }
+    
+    .task-date {
+        flex: 100%;
+        margin: 0.5rem;
+    }
+    
+    .task-imp {
+        flex: 100%;
+        margin: 0.5rem;
+    }
+}
